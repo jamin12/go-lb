@@ -2,21 +2,22 @@ package lb
 
 import (
 	"fmt"
+	"go_lb/domain/node"
 )
 
 type LoadBalancer struct {
-	Nodes        []*Node
+	Nodes        []*node.Node
 	CurrentIndex int
 }
 
-func NewLoadBalancer(nodes []*Node) *LoadBalancer {
+func NewLoadBalancer(nodes []*node.Node) *LoadBalancer {
 	return &LoadBalancer{
 		Nodes:        nodes,
 		CurrentIndex: 0,
 	}
 }
 
-func (lb *LoadBalancer) SelectNode(requestSize int) (*Node, error) {
+func (lb *LoadBalancer) SelectNode(requestSize int) (*node.Node, error) {
 	startIndex := lb.CurrentIndex
 	for {
 		node := lb.Nodes[lb.CurrentIndex]

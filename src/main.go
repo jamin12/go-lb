@@ -1,8 +1,8 @@
 package main
 
 import (
-	"domain/lb"
-	"domain/node"
+	"go_lb/domain/lb"
+	"go_lb/domain/node"
 )
 
 func main() {
